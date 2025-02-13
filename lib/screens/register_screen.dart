@@ -160,7 +160,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             PasswordWidget(
                               label: 'Confirm Password',
                               passwordController: confirmController,
-                              test: passwordController.text
+                              test: passwordController
                             )
                           ],
                         ),

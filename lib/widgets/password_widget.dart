@@ -9,7 +9,7 @@ class PasswordWidget extends StatefulWidget {
 
   final String label;
   final TextEditingController passwordController;
-  final String? test;
+  final TextEditingController? test;
 
   @override
   State<PasswordWidget> createState() => _PasswordWidgetState();
@@ -32,7 +32,7 @@ class _PasswordWidgetState extends State<PasswordWidget> {
             else if(!RegExp(r'[A-Z]').hasMatch(value) || !RegExp(r'[a-z]').hasMatch(value) || !RegExp(r'[0-9]').hasMatch(value)) {
               return 'Must contain uppercase, lowercase letters and digits.';
             }
-            else if(value != widget.test && widget.test != null) {
+            else if(widget.test != null && value != widget.test!.text) {
               return 'Make sure both passwords are the same.';
             }
             else {
@@ -40,6 +40,7 @@ class _PasswordWidgetState extends State<PasswordWidget> {
             }
           },
           controller: widget.passwordController,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           obscureText: authCubit.isObscure,
           style: TextStyle(
             color: Colors.black,
@@ -91,10 +92,5 @@ class _PasswordWidgetState extends State<PasswordWidget> {
         );
       },
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
   }
 }
