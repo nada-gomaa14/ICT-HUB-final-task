@@ -90,6 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               'password': passwordController.text,
                             }
                           );
+                          authCubit.resetPasswordVisibility();
                         }
                       }
                     ),
@@ -111,6 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 builder: (context) => RegisterScreen()
                               )
                             );
+                            authCubit.resetPasswordVisibility();
                           },
                           child: Text(
                             'Register',

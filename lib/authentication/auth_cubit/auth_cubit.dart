@@ -24,6 +24,11 @@ class AuthCubit extends Cubit<AuthStates> {
     emit(PasswordVisibilityState());
   }
 
+  void resetPasswordVisibility() {
+    isObscure = true;
+    emit(PasswordVisibilityState());
+  }
+
   UserModel? userModel;
 
   Future<void> register({required Map<String, dynamic> user}) async {

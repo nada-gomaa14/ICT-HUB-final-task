@@ -67,6 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             builder: (context) => LoginScreen()
                           )
                         );
+                        authCubit.resetPasswordVisibility();
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),
@@ -176,6 +177,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               'data' : {'username' : usernameController.text}
                             }
                           );
+                          authCubit.resetPasswordVisibility();
                         }
                       }
                     )
